@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Task Manager - Organize your daily tasks">
+  <title>Smart Task Manager | InternNova</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <h1>🚀 Smart Task Manager</h1>
+      <button id="themeBtn" class="theme-btn" type="button">
+        🌙 Dark Mode
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h2>Manage Your Tasks Efficiently</h2>
+      <p>Stay organized, focused and productive every day.</p>
+    </section>
+
+    <section class="stats" aria-label="Task statistics">
+      <article class="stat-card">
+        <h3>Total Tasks</h3>
+        <p id="totalTasks">0</p>
+      </article>
+      <article class="stat-card">
+        <h3>Completed</h3>
+        <p id="completedTasks">0</p>
+      </article>
+      <article class="stat-card">
+        <h3>Pending</h3>
+        <p id="pendingTasks">0</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2 id="formHeading">Add New Task</h2>
+
+      <form id="taskForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="taskInput">Task Name</label>
+            <input type="text" id="taskInput"
+              placeholder="Enter your task" maxlength="100" required>
+          </div>
+
+          <div class="field">
+            <label for="priorityInput">Priority</label>
+            <select id="priorityInput">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="dateInput">Due Date</label>
+            <input type="date" id="dateInput">
+          </div>
+        </div>
+
+        <p id="formError" class="error" role="alert"></p>
+
+        <div class="actions">
+          <button class="primary-btn" id="submitBtn" type="submit">
+            + Add Task
+          </button>
+          <button class="secondary-btn" id="cancelBtn"
+            type="button" hidden>Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Your Tasks</h2>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search"
+          placeholder="Search tasks..." aria-label="Search tasks">
+
+        <select id="filterInput" aria-label="Filter tasks">
+          <option value="all">All Tasks</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+
+        <select id="priorityFilter" aria-label="Filter by priority">
+          <option value="all">All Priorities</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div id="taskList" class="task-list" aria-live="polite"></div>
+      <p id="emptyMessage" class="empty">
+        No tasks found. Add your first task!
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Smart Task Manager | Web Development Project</p>
+  </footer>
+</body>
+</html>
